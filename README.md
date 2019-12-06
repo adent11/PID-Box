@@ -51,6 +51,7 @@ On Schedule
 * Got potentiometer and motor control working with test code
 * Broke the wheel trying to put it on
 * Made the hole in the wheel slightly wider and recut
+* Having trouble attaching the motor and wheel straight
 ## Week 6
 ## Week 7
 ## Week 8
