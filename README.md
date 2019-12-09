@@ -9,7 +9,7 @@ The goal of the PID box project is to control the speed of a motor using a photi
 |<a href="https://github.com/adent11/PID-Box/blob/master/README.md#week-2">2</a>|11/6/19|Design one wall assembly of motor, wheel, and <br/>photointerrupter|Made assembly with the motor, photointerrupter, LCD, some indicator LEDs, and the potentiometer|
 |<a href="https://github.com/adent11/PID-Box/blob/master/README.md#week-3">3</a>|11/11/19|Finish designing the box, add in LCD, LED indicators,<br/> switches, battery pack, and potentiometer|Added switches, battery pack, and arduino; 3d printed motor mount|
 |<a href="https://github.com/adent11/PID-Box/blob/master/README.md#week-4">4</a>|11/18/19|Add arduino, start assembling box|Started assembling, made fritzing diagram|
-|<a href="https://github.com/adent11/PID-Box/blob/master/README.md#week-5">5</a>|12/2/19|Wire everything and get test code working||
+|<a href="https://github.com/adent11/PID-Box/blob/master/README.md#week-5">5</a>|12/2/19|Wire everything and get test code working|Mounted all but motor, due to its tendancy to attach crooked, started wiring|
 |<a href="https://github.com/adent11/PID-Box/blob/master/README.md#week-6">6</a>||RPM code||
 |<a href="https://github.com/adent11/PID-Box/blob/master/README.md#week-7">7</a>||PID code||
 |<a href="https://github.com/adent11/PID-Box/blob/master/README.md#week-8">8</a>||Non-PID code||
@@ -53,6 +53,7 @@ On Schedule
 * Broke the wheel trying to put it on
 * Made the hole in the wheel slightly wider and recut
 * Having trouble attaching the motor and wheel straight
+<br/>Behind due to delays in mounting motor 
 ## Week 6
 ## Week 7
 ## Week 8
