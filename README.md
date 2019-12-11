@@ -3,7 +3,7 @@
 ## PID-Box Project <!--Temporary Title-->
 The goal of the PID box project is to control the speed of a motor using a photinterrupter and PID.
 ## Project Timeline
-<details><summary></summary>
+<details><summary><b>Click to expand</b></summary>
 <p>
   
 |Week|Date| Planned Milestones|Actual Progress|
@@ -37,7 +37,7 @@ On schedule
 </details>
   
 ## Week 2
-<details><summary></summary>
+<details><summary><b>Click to expand</b></summary>
 <p>
   
 * Made sub-assembly of the motor, wheel, and photointerrupter
@@ -53,7 +53,7 @@ On schedule
 </details>
   
 ## Week 3
-<details><summary></summary>
+<details><summary><b>Click to expand</b></summary>
 <p>
   
 * Added in the rest of the components
@@ -65,7 +65,7 @@ On schedule
 </details>
   
 ## Week 4
-<details><summary></summary>
+<details><summary><b>Click to expand</b></summary>
 <p>
   
 * Laser cut all walls
@@ -77,7 +77,7 @@ On Schedule
 </details>
   
 ## Week 5
-<details><summary></summary>
+<details><summary><b>Click to expand</b></summary>
 <p>
   
 * Got potentiometer and motor control working with test code
@@ -92,9 +92,3 @@ On Schedule
 ## Week 7
 ## Week 8
 ## Week 9
-<details><summary>**aasdfasdfasdf**</summary>
-<p>
-  dasfdasfdasdf
-  </p>
-</details>
-  
