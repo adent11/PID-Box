@@ -6,14 +6,17 @@
 #include <LCD.h>
 #include <LiquidCrystal_I2C/h>
 #include <Wire.h>
-LiquidCrystal_I2C lcd(0x3F, 2, 1, 0, 4, 5, 6, 7)
+LiquidCrystal_I2C lcd(0x27,16,2);  // set the LCD address to 0x27 for a 16 chars and 2 line display.  
+// If 0x27 doesn't work, try 0x3F.
+
+// rpm varibles
+int interruptCount;
 
 // motor control variables
 const int interruptPin = 3
 const int motorPin = 6
 int actualspeed;
 int setPoint;
-
 
 // user control pins
 const int pidSwitch = 5
@@ -27,6 +30,7 @@ const int led1 = 10
 const int led2 = 11
 const int led3 = 12
 const int led4 = 13
+
 void setup()
 {
 	lcd.begin(16, 2); // for 16 x 2 LCD module
@@ -45,4 +49,10 @@ void setup()
 
 void loop()
 {
+}
+
+void count()
+{
+interruptCount = interruptCount + .5;
+
 }
