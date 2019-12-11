@@ -18,7 +18,7 @@ The goal of the PID box project is to control the speed of a motor using a photi
 |11||Delay compensation||
 |12||Delay compensation||
 ## Week 1
-<details><summary>Click to expand</summary>
+<details><summary>d</summary>
 <p>
   
 * Designed mount for motor
@@ -31,7 +31,7 @@ On schedule
 </details>
   
 ## Week 2
-<details><summary>Click to expand</summary>
+<details><summary></summary>
 <p>
   
 * Made sub-assembly of the motor, wheel, and photointerrupter
@@ -47,7 +47,7 @@ On schedule
 </details>
   
 ## Week 3
-<details><summary>Click to expand</summary>
+<details><summary></summary>
 <p>
   
 * Added in the rest of the components
@@ -59,7 +59,7 @@ On schedule
 </details>
   
 ## Week 4
-<details><summary>Click to expand</summary>
+<details><summary></summary>
 <p>
   
 * Laser cut all walls
@@ -71,7 +71,7 @@ On Schedule
 </details>
   
 ## Week 5
-<details><summary>Click to expand</summary>
+<details><summary></summary>
 <p>
   
 * Got potentiometer and motor control working with test code
