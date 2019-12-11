@@ -24,7 +24,7 @@ The goal of the PID box project is to control the speed of a motor using a photi
 </details>
   
 ## Week 1
-<details><summary>Click to expand</summary>
+<details><summary><b>Click to expand</b></summary>
 <p>
   
 * Designed mount for motor
@@ -64,7 +64,8 @@ On schedule
 </p>
 </details>
   
-## Week 4 <details><summary></summary>
+## Week 4
+<details><summary></summary>
 <p>
   
 * Laser cut all walls
