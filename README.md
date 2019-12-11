@@ -18,13 +18,22 @@ The goal of the PID box project is to control the speed of a motor using a photi
 |11||Delay compensation||
 |12||Delay compensation||
 ## Week 1
+<details><summary></summary>
+<p>
+  
 * Designed mount for motor
-* Designed wheel <br/>
+* Designed wheel 
+<br/>
 <IMG SRC="Media/MotorMount1.PNG" width="273" height="200"> <IMG SRC="Media/InterruptWheel1.PNG" width="252" height="200"><IMG SRC="Media/MotorAssem1.PNG" width="231" height="200">
 <br/>
 On schedule
-
+</p>
+</details>
+  
 ## Week 2
+<details><summary></summary>
+<p>
+  
 * Made sub-assembly of the motor, wheel, and photointerrupter
 
 <br/>
@@ -34,26 +43,45 @@ On schedule
 
 <IMG SRC="Media/PIDBoxAssem11-8.PNG" width="335" height="200">
 <br/> On schedule
+</p>
+</details>
   
 ## Week 3
+<details><summary></summary>
+<p>
+  
 * Added in the rest of the components
 * 3d printed the motor mount
 * Made drawing of all PID box walls
 <IMG SRC="Media/PIDGif.gif" width="400" height="400">
 <br/> On schedule
-
+</p>
+</details>
+  
 ## Week 4
+<details><summary></summary>
+<p>
+  
 * Laser cut all walls
 * Drilled to fix some holes that were the wrong size
 * Recut a wall to have labels
 * Started making fritzing diagram
 On Schedule
+</p>
+</details>
+  
 ## Week 5
+<details><summary></summary>
+<p>
+  
 * Got potentiometer and motor control working with test code
 * Broke the wheel trying to put it on
 * Made the hole in the wheel slightly wider and recut
 * Having trouble attaching the motor and wheel straight
 <br/>Behind due to delays in mounting motor 
+</p>
+</details>
+  
 ## Week 6
 ## Week 7
 ## Week 8
