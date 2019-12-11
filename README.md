@@ -64,8 +64,7 @@ On schedule
 </p>
 </details>
   
-## Week 4
-<details><summary></summary>
+## Week 4<details><summary></summary>
 <p>
   
 * Laser cut all walls
