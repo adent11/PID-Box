@@ -2,7 +2,10 @@
 # PID-Box
 ## PID-Box Project <!--Temporary Title-->
 The goal of the PID box project is to control the speed of a motor using a photinterrupter and PID.
-## Overview
+## Project Timeline
+<details><summary></summary>
+<p>
+  
 |Week|Date| Planned Milestones|Actual Progress|
 |----| -- | ----------------- |--------|
 |<a href="https://github.com/adent11/PID-Box/blob/master/README.md#week-1">1</a>|10/28/19|Design mount for the motor, and the wheel|Designed mount for the motor, the wheel, and a simple t-slot wall|
@@ -17,6 +20,9 @@ The goal of the PID box project is to control the speed of a motor using a photi
 |10||Delay compensation||
 |11||Delay compensation||
 |12||Delay compensation||
+</p>
+</details>
+  
 ## Week 1
 <details><summary></summary>
 <p>
