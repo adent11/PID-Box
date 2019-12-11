@@ -3,9 +3,7 @@
 ## PID-Box Project <!--Temporary Title-->
 The goal of the PID box project is to control the speed of a motor using a photinterrupter and PID.
 ## Project Timeline
-<details><summary><b>Click to expand</b></summary>
-<p>
-  
+
 |Week|Date| Planned Milestones|Actual Progress|
 |----| -- | ----------------- |--------|
 |<a href="https://github.com/adent11/PID-Box/blob/master/README.md#week-1">1</a>|10/28/19|Design mount for the motor, and the wheel|Designed mount for the motor, the wheel, and a simple t-slot wall|
@@ -20,11 +18,9 @@ The goal of the PID box project is to control the speed of a motor using a photi
 |10||Delay compensation||
 |11||Delay compensation||
 |12||Delay compensation||
-</p>
-</details>
-  
-## Week 1
-<details><summary><b>Click to expand</b></summary>
+
+## Weekly Overview
+<details><summary><b>Week 1</b></summary>
 <p>
   
 * Designed mount for motor
@@ -36,8 +32,8 @@ On schedule
 </p>
 </details>
   
-## Week 2
-<details><summary><b>Click to expand</b></summary>
+
+<details><summary><b>Week 2</b></summary>
 <p>
   
 * Made sub-assembly of the motor, wheel, and photointerrupter
@@ -52,8 +48,8 @@ On schedule
 </p>
 </details>
   
-## Week 3
-<details><summary><b>Click to expand</b></summary>
+
+<details><summary><b>Week 3</b></summary>
 <p>
   
 * Added in the rest of the components
@@ -64,8 +60,7 @@ On schedule
 </p>
 </details>
   
-## Week 4
-<details><summary><b>Click to expand</b></summary>
+<details><summary><b>Week 4</b></summary>
 <p>
   
 * Laser cut all walls
@@ -76,8 +71,8 @@ On Schedule
 </p>
 </details>
   
-## Week 5
-<details><summary><b>Click to expand</b></summary>
+
+<details><summary><b>Week 5</b></summary>
 <p>
   
 * Got potentiometer and motor control working with test code
@@ -88,7 +83,26 @@ On Schedule
 </p>
 </details>
   
-## Week 6
-## Week 7
-## Week 8
-## Week 9
+<details><summary><b>Week 6</b></summary>
+<p>
+
+</p>
+</details>
+
+<details><summary><b>Week 7</b></summary>
+<p>
+
+</p>
+</details>
+
+<details><summary><b>Week 8</b></summary>
+<p>
+
+</p>
+</details>
+
+<details><summary><b>Week 9</b></summary>
+<p>
+
+</p>
+</details>
