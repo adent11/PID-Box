@@ -19,7 +19,7 @@ The goal of the PID box project is to control the speed of a motor using a photi
 |11||Delay compensation||
 |12||Delay compensation||
 
-## Weekly Overview
+## Weekly Progress
 <details><summary><b>Week 1</b></summary>
 <p>
   
