@@ -11,6 +11,7 @@ LiquidCrystal_I2C lcd(0x27,16,2);  // set the LCD address to 0x27 for a 16 chars
 
 // rpm varibles
 int interruptCount;
+int rpsCalcDelay;
 
 // motor control variables
 const int interruptPin = 3
@@ -33,9 +34,9 @@ const int led4 = 13
 
 void setup()
 {
-	lcd.begin(16, 2); // for 16 x 2 LCD module
-	lcd.setBacklightPin(3, POSITIVE);
-	lcd.setBacklight(HIGH);
+	lcd.init();
+	lcd.backlight();
+	lcd.begin(16, 2);
 
 	pinMode(motorPin, OUTPUT);
 	pinMode(pidSwitch, INPUT);
@@ -49,10 +50,17 @@ void setup()
 
 void loop()
 {
+	digitalWrite(13, HIGH);
 }
 
 void count()
 {
 interruptCount = interruptCount + .5;
 
+}
+
+int calcRPS(interruptCount){
+	detachInterrupt(interrupt);
+	rps = interruptCount*(1/rpsCalcDelay);
+	attachInterrupt(interrupt, function, mode);
 }
