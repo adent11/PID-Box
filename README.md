@@ -11,7 +11,7 @@ The goal of the PID box project is to control the speed of a motor using a photi
 |3|11/11/19|Finish designing the box, add in LCD, LED indicators,<br/> switches, battery pack, and potentiometer|Added switches, battery pack, and arduino; 3d printed motor mount|
 |4|11/18/19|Add arduino, start assembling box|Started assembling, made fritzing diagram|
 |5|12/2/19|Wire everything and get test code working|Mounted all but motor, due to its tendancy to attach crooked, started wiring|
-|6||RPM code|Soldered wires to all of the components, wired all components, assembled box|
+|6|12/9/19|RPM code|Soldered wires to all of the components, wired all components, assembled box|
 |7||PID code||
 |8||Non-PID code||
 |9||Wrap up loose ends||
