@@ -88,8 +88,8 @@ On Schedule
 
 * Soldered wires to all components
 * Finished assembling box
-* Note: Leave space for wiring so you don't end up like this
-<IMG SRC="Media/PIDBoxWiring.JPG" width="400" height="400"> <br/>
+* Note: Leave space for wiring so you don't end up having to cram the wiring into a small box <br/>
+<IMG SRC="Media/PIDBoxWiring.JPG" width="267" height="200"> <br/>
 One week behind due to delays in wiring
 </p>
 </details>
