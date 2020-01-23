@@ -13,8 +13,8 @@ The goal of the PID box project is to control the speed of a motor using a photi
 |5|12/2/19|Wire everything and get test code working|Mounted all but motor, due to its tendancy to attach crooked, started wiring|
 |6|12/9/19|RPM code|Soldered wires to all of the components, wired all components, assembled box|
 |7|1/6/20|PID code|Tested all components, started rpm code, |
-|8||Non-PID code||
-|9||Wrap up loose ends||
+|8|1/13/20|Non-PID code|Finished rpm code, started non-PID control code|
+|9|1/22/20 |Wrap up loose ends|Finished non-PID control code, wrote PID code, started tuning PID variables|
 |10||Delay compensation||
 |11||Delay compensation||
 |12||Delay compensation||
@@ -103,12 +103,15 @@ One week behind due to delays in wiring
 
 <details><summary><b>Week 8</b></summary>
 <p>
-
+* Finished and tested rpm code
+* Started non-PID motor control code
 </p>
 </details>
 
 <details><summary><b>Week 9</b></summary>
 <p>
-
+* Finished non-PID motor control code
+* Finished PID control code
+* Started tuning PID variables
 </p>
 </details>
