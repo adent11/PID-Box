@@ -11,7 +11,7 @@ LiquidCrystal_I2C lcd(0x3F, 16, 2); // set the LCD address to 0x27 for a 16 char
 
 // rpm varibles
 volatile int interruptCount = 0;
-const int rpmCalcDelay = 200;  //Delay between calculations of rpm
+const int rpmCalcDelay = 166;  //Delay between calculations of rpm
 long oldmillis = 0;
 
 // motor control variables
@@ -23,38 +23,41 @@ int motorPower = 0;
 int error;
 int adjustment; //proportional control adjustment
 
-double kp = 8; //PID constant
-double ki = .005; //PID constant
-double kd = 7; //PID constant
-int oldError, Actual;
+//PID variables
+double kP = 6; //PID constant
+double kI = .01; //PID constant
+double kD = 0.0000; //PID constant
+int oldError; //Previous error, used to find
 float Derivative, Drive, Integral;
 
 // user control pins
 const int modeSwitch = 5;
-const int potPin = 0; //Analog
-int initialized = 0;
+const int potPin = A0; //Speed potentiometer pin
+int initialized = 0;  //Makes it so the message for control type ony appears once
 
 //LED indicator pins
-const int pidLed = 7;
-const int pwrLed = 8;
-const int ledBlink = 9;
-const int led1 = 10;
-const int led2 = 11;
-const int led3 = 12;
-const int led4 = 13;
-bool ledblink = false;
-int ledStartupDelay = 70;
+const int pidLed = 7; //Power indacator pin
+const int pwrLed = 8;  //Mode indacator pin
+const int ledBlink = 9; //Blinking led pin
+const int led1 = 10;  //Speed led pin
+const int led2 = 11;  //Speed led pin
+const int led3 = 12;  //Speed led pin
+const int led4 = 13;  //Speed led pin
+bool ledblink = false;  //Blinking led state
+int ledStartupDelay = 70; //Delay between blinks in initializing led show
 
 
 
 void setup()
 {
   Serial.begin(9600);
-  lcd.init();
+
+  lcd.init();   //Setup for LCD
   lcd.backlight();
   lcd.begin(16, 2);
   lcd.clear();
-  pinMode(motorPin, OUTPUT);
+
+  pinMode(motorPin, OUTPUT);  //Sets modes for all pins
   pinMode(modeSwitch, INPUT);
   pinMode(pidLed, OUTPUT);
   pinMode(pwrLed, OUTPUT);
@@ -65,10 +68,11 @@ void setup()
   pinMode(led4, OUTPUT);
   pinMode(ledBlink, OUTPUT);
   pinMode(interruptPin, INPUT_PULLUP);
+
   attachInterrupt(digitalPinToInterrupt(interruptPin), count, CHANGE);
-  initialized = digitalRead(modeSwitch);
-  initSequence();
-  
+  initialized = digitalRead(modeSwitch);  //Makes sure it knows which mode it is in
+  initSequence(); //Fancy leds
+
 }
 
 
@@ -76,88 +80,123 @@ void setup()
 
 void loop()
 {
-  
-  setPoint = map(analogRead(potPin), 0, 1023, 0, 100);
+
+  setPoint = map(analogRead(potPin), 0, 1023, 0, 100);  //Sets setPoint to mapped potentiometer value
+
   lcd.setCursor(0, 0);
   lcd.print("Setpoint: ");
   lcd.print(setPoint);
-  lcd.print("       ");
+  lcd.print("       "); //Extra space so no messages overlap
   lcd.setCursor(0, 1);
   lcd.print("Speed: ");
   lcd.print(actualSpeed);
-  lcd.print("         ");
-  
-  if(motorPower > 255){ //ensures that the power isn't above 255
-    motorPower = 255;
-  }
-  if(motorPower < 0){ //ensures that the power isn't below 0
-    motorPower = 0;
-  }
+  lcd.print("       "); //Extra space so no messages overlap
+  setLeds();  //Sets LEDs that show speed
 
-  analogWrite(motorPin, motorPower);
-  Serial.println(motorPower);
-     
+
+
+
   if (millis() >= oldmillis + rpmCalcDelay) {
-    detachInterrupt(digitalPinToInterrupt(interruptPin));
-    //Serial.println(interruptCount);
-    actualSpeed = map(calcRPM(), 0, 10000, 0 ,100);
-    attachInterrupt(digitalPinToInterrupt(interruptPin), count, CHANGE);
-    interruptCount = 0;
+    detachInterrupt(digitalPinToInterrupt(interruptPin)); //Detaches the interrupt so it doesn't mess up the math
+    actualSpeed = map(calcRPM(), 0, 5000, 0, 100);  //Maps rpm from 0 to 100
+
+    //No PID loop
+    if (digitalRead(modeSwitch) == LOW) {
+      if (initialized == 0) { //Initialization sequence
+        digitalWrite(pidLed, LOW);  //LED shows which mode
+        lcd.clear();
+        lcd.print("PID OFF                       ");
+        initialized = 1;
+        delay(800); //Delay so user can read the message
+      }
+
+      analogWrite(motorPin, map(analogRead(potPin), 0, 1023, 0, 248)); //Sets motor power to a mapped potentiometer value
+
+    }
+
+
+    else  {
+      //PID loop
+      if (initialized == 1) { //Initialization sequence
+        digitalWrite(pidLed, HIGH); //LED shows which mode
+        lcd.clear();
+        lcd.print("PID ON                     ");
+        initialized = 0;
+        delay(800); //Delay so user can read the message
+      }
+
+      error = setPoint - actualSpeed; //PID math
+      Integral = Integral + (error * rpmCalcDelay); //PID math
+      Derivative = (error - oldError) / rpmCalcDelay; //PID math
+      motorPower = (error * kP) + (Integral * kI) + (Derivative * kD);  //PID math
+      oldError = error;
+
+      analogWrite(motorPin, constrain(motorPower + map(analogRead(potPin), 0, 1023, 0, 150), 0, 255));  //Sets motor power to PID correction power
+
+    }
+    interruptCount = 0; //Resets interrupt counter
     oldmillis = millis();
+
+    Serial.print(setPoint); //Shows setpoint and speed as two lines on serial plotter
+    Serial.print(",");
+    Serial.println(actualSpeed);
+
+    attachInterrupt(digitalPinToInterrupt(interruptPin), count, CHANGE);  //Reattaches the interrupt
   }
 
-  //No PID loop
-  if (digitalRead(modeSwitch) == LOW) {
-    if (initialized == 0) {
-      digitalWrite(pidLed, LOW);
-      lcd.setCursor(0, 0);
-      lcd.print("PID OFF                       ");
-      initialized = 1;
-      delay(500);
-    }
-    error = setPoint - actualSpeed;
-    adjustment = map(error, -100, 100, -10, 10);
-    motorPower = motorPower + adjustment;
-  }
-
-
-  else  {
-    //PID loop
-    if (initialized == 1) {
-      digitalWrite(pidLed, HIGH);
-      lcd.setCursor(0, 0);
-      lcd.print("PID ON                     ");
-      initialized = 0;
-      delay(500);
-    }
-    
-   error = setPoint-actualSpeed;
-   Integral = Integral + (error*rpmCalcDelay);
-   Derivative = (error - oldError)/rpmCalcDelay;
-   motorPower = (error*kp) + (Integral*ki) + (Derivative*kd);
-   oldError = error;
-   delay(rpmCalcDelay);
-   
-  }
-  
 }
 
 void count()
 {
-  interruptCount = interruptCount + 1;
-  ledblink = !ledblink;
-  digitalWrite(ledBlink, ledblink);
+  interruptCount = interruptCount + 1;  //Adds one to interrupt count
+  ledblink = !ledblink; //Switches the state of the blinking led
+  digitalWrite(ledBlink, ledblink); //Turns led on or off
 }
 
 
 int calcRPM()
-  {
+{
   int rpm;
-	rpm = interruptCount*(60000/rpmCalcDelay);
+  rpm = interruptCount * (60000 / rpmCalcDelay) / 12; //Calculates rpm
   return rpm;
+}
+
+void setLeds()  //Sets speed LEDs
+{
+  if (actualSpeed > 0) {
+    digitalWrite(led1, HIGH);
+    digitalWrite(led2, LOW);
+    digitalWrite(led3, LOW);
+    digitalWrite(led4, LOW);
   }
 
+  if (actualSpeed > 25) {
+    digitalWrite(led1, HIGH);
+    digitalWrite(led2, HIGH);
+    digitalWrite(led3, LOW);
+    digitalWrite(led4, LOW);
+  }
 
+  if (actualSpeed > 75) {
+    digitalWrite(led1, HIGH);
+    digitalWrite(led2, HIGH);
+    digitalWrite(led3, HIGH);
+    digitalWrite(led4, LOW);
+  }
+
+  if (actualSpeed > 100) {
+    digitalWrite(led1, HIGH);
+    digitalWrite(led2, HIGH);
+    digitalWrite(led3, HIGH);
+    digitalWrite(led4, HIGH);
+  }
+  if (actualSpeed == 0) {
+    digitalWrite(led1, LOW);
+    digitalWrite(led2, LOW);
+    digitalWrite(led3, LOW);
+    digitalWrite(led4, LOW);
+  }
+}
 
 
 
@@ -181,10 +220,36 @@ int calcRPM()
 
 
 void initSequence() {
-  lcd.print("Alden  Dent");
-  delay(500);
+  lcd.print("A");
+  delay(50);
+  lcd.print("l");
+  delay(50);
+  lcd.print("d");
+  delay(50);
+  lcd.print("e");
+  delay(50);
+  lcd.print("n");
+  delay(50);
+  lcd.print("  ");
+  lcd.print("D");
+  delay(50);
+  lcd.print("e");
+  delay(50);
+  lcd.print("n");
+  delay(50);
+  lcd.print("t");
   lcd.setCursor(0, 1);
-  lcd.print("PID Box");
+  lcd.print("P");
+  delay(50);
+  lcd.print("I");
+  delay(50);
+  lcd.print("D");
+  delay(50);
+  lcd.print("  B");
+  delay(50);
+  lcd.print("o");
+  delay(50);
+  lcd.print("x");
   digitalWrite(ledBlink, HIGH);
   digitalWrite(led1, HIGH);
   delay(ledStartupDelay);
