@@ -15,8 +15,8 @@ The goal of the PID box project is to control the speed of a motor using a photi
 |7|1/6/20|PID code|Tested all components, started rpm code, |
 |8|1/13/20|Non-PID code|Finished rpm code, started non-PID control code|
 |9|1/22/20 |Wrap up loose ends|Finished non-PID control code, wrote PID code, started tuning PID variables|
-|10||Delay compensation||
-|11||Delay compensation||
+|10|1/27/20|Delay compensation|Continued tuning PID constants, worked on problem with rpm accuracy|
+|11|2/3/20|Delay compensation|Recut wheel, retuned PID constants|
 |12||Delay compensation||
 
 ## Weekly Progress
@@ -96,6 +96,7 @@ One week behind due to delays in wiring
 
 <details><summary><b>Week 7</b></summary>
 <p>
+  
 * Tested all components
 * Wrote rpm code
 </p>
@@ -103,6 +104,7 @@ One week behind due to delays in wiring
 
 <details><summary><b>Week 8</b></summary>
 <p>
+  
 * Finished and tested rpm code
 * Started non-PID motor control code
 </p>
@@ -110,8 +112,25 @@ One week behind due to delays in wiring
 
 <details><summary><b>Week 9</b></summary>
 <p>
+  
 * Finished non-PID motor control code
 * Finished PID control code
 * Started tuning PID variables
+</p>
+</details>
+
+<details><summary><b>Week 10</b></summary>
+<p>
+  
+* Continued tuning PID constants
+* Came across problem with RPM accuracy due to only having one hole cut in my wheel
+</p>
+</details>
+
+<details><summary><b>Week 11</b></summary>
+<p>
+  
+* Redesigned the wheel to have six holes instead of one for greater accuracy
+* Retuned PID constants
 </p>
 </details>
