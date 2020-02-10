@@ -131,6 +131,7 @@ One week behind due to delays in wiring
 <p>
   
 * Redesigned the wheel to have six holes instead of one for greater accuracy
-* Retuned PID constants
+* Retuned PID constants </br>
+<IMG SRC="Media/InterruptWheel2.PNG" width="215" height="200"> </br>
 </p>
 </details>
