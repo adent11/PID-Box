@@ -17,18 +17,22 @@ The goal of the PID box project is to control the speed of a motor using a photi
 |9|1/22/20 |Wrap up loose ends|Finished non-PID control code, wrote PID code, started tuning PID variables|
 |10|1/27/20|Delay compensation|Continued tuning PID constants, worked on problem with rpm accuracy|
 |11|2/3/20|Delay compensation|Recut wheel, retuned PID constants|
-|12||Delay compensation||
+|12|2/10/20|Delay compensation|Finalized code, finished readme|
 
 ## Weekly Progress
+<details><summary><b>Pre-project Planning</b></summary>
+<p>
+I didn't do a lot of sketching or drawing out plans, so most of my project planning was done in either Solidworks or Arduino, starting with smaller assemblies or simple test codes to gain the understanding of how the project works. I did however spend a while before actually starting the project trying to understand how PID control works.
+</p>
+</details>
+
 <details><summary><b>Week 1</b></summary>
 <p>
   
 * Designed mount for motor
 * Designed wheel 
 <br/>
-<IMG SRC="Media/MotorMount1.PNG" width="273" height="200"> <IMG SRC="Media/InterruptWheel1.PNG" width="252" height="200"><IMG SRC="Media/MotorAssem1.PNG" width="231" height="200">
-<br/>
-On schedule
+<IMG SRC="Media/MotorMount1.PNG" width="273" height="200"> <IMG SRC="Media/InterruptWheel1.PNG" width="252" height="200"><IMG SRC="Media/MotorAssem1.PNG" width="231" height="200"><br/>
 </p>
 </details>
   
@@ -43,8 +47,7 @@ On schedule
 
 * Added a row of LEDs that will show the speed
 
-<IMG SRC="Media/PIDBoxAssem11-8.PNG" width="335" height="200">
-<br/> On schedule
+<IMG SRC="Media/PIDBoxAssem11-8.PNG" width="335" height="200"><br/> 
 </p>
 </details>
   
@@ -56,7 +59,7 @@ On schedule
 * 3d printed the motor mount
 * Made drawing of all PID box walls
 <IMG SRC="Media/PIDGif.gif" width="400" height="400">
-<br/> On schedule
+<br/> 
 </p>
 </details>
   
@@ -67,7 +70,6 @@ On schedule
 * Drilled to fix some holes that were the wrong size
 * Recut a wall to have labels
 * Started making fritzing diagram
-On Schedule
 </p>
 </details>
   
@@ -90,7 +92,6 @@ On Schedule
 * Finished assembling box
 * Note: Leave space for wiring so you don't end up having to cram the wiring into a small box <br/>
 <IMG SRC="Media/PIDBoxWiring.JPG" width="267" height="200"> <br/>
-One week behind due to delays in wiring
 </p>
 </details>
 
@@ -136,7 +137,16 @@ One week behind due to delays in wiring
 </p>
 </details>
 
-## Code
+<details><summary><b>Week 11</b></summary>
+<p>
+  
+* Finalized code
+* Wrap up loose ends such as git
+</p>
+</details>
+
+I didn't do a lot of sketching or drawing out plans, so most of my project planning was done in either Solidworks or Arduino, starting with smaller assemblies or simple test codes to gain the understanding of how the project works. I did however spend a while before actually starting the project trying to understand how PID control works.
+
 ```c++
 
 ```
