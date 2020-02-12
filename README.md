@@ -19,7 +19,7 @@ The goal of the PID box project is to control the speed of a motor using a photi
 |11|2/3/20|Delay compensation|Recut wheel, retuned PID constants|
 |12|2/10/20|Delay compensation|Finalized code, finished readme|
 
-## Weekly Progress
+## My Process
 <details><summary><b>Pre-project Planning</b></summary>
 <p>
 I didn't do a lot of sketching or drawing out plans, so most of my project planning was done in either Solidworks or Arduino, starting with smaller assemblies or simple test codes to gain the understanding of how the project works. I did however spend a while before actually starting the project trying to understand how PID control works.
@@ -90,7 +90,7 @@ I didn't do a lot of sketching or drawing out plans, so most of my project plann
 
 * Soldered wires to all components
 * Finished assembling box
-* Note: Leave space for wiring so you don't end up having to cram the wiring into a small box <br/>
+* One problem that I faced this week was that all of my wiring had to fit into a relatively small space, so it took a long time to wire <br/>
 <IMG SRC="Media/PIDBoxWiring.JPG" width="267" height="200"> <br/>
 </p>
 </details>
@@ -100,6 +100,15 @@ I didn't do a lot of sketching or drawing out plans, so most of my project plann
   
 * Tested all components
 * Wrote rpm code
+
+``` c++
+int calcRPM()
+{
+  int rpm;
+  rpm = interruptCount * (60000 / rpmCalcDelay) / 12; //Calculates rpm, interrupts times calculations per second divided by the number of interrupts per rotation
+  return rpm;
+}
+```
 </p>
 </details>
 
@@ -144,9 +153,5 @@ I didn't do a lot of sketching or drawing out plans, so most of my project plann
 * Wrap up loose ends such as git
 </p>
 </details>
-
-I didn't do a lot of sketching or drawing out plans, so most of my project planning was done in either Solidworks or Arduino, starting with smaller assemblies or simple test codes to gain the understanding of how the project works. I did however spend a while before actually starting the project trying to understand how PID control works.
-
-```c++
-
-```
+ 
+## The Finished Product
