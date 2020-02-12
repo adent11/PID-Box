@@ -105,8 +105,8 @@ I didn't do a lot of sketching or drawing out plans, so most of my project plann
 int calcRPM()
 {
   int rpm;
-  rpm = interruptCount * (60000 / rpmCalcDelay) / 12; //Calculates rpm, interrupts times calculations per second divided by the number of interrupts per rotation
-  return rpm;
+  rpm = interruptCount * (60000 / rpmCalcDelay) / 12; //Calculates rpm, interrupts times calculations per second divided by 
+  return rpm;                                         //the number of interrupts per rotation
 }
 ```
 </p>
@@ -172,3 +172,6 @@ int calcRPM()
 * Box
 * Wheel
 * Motor Mount
+
+### Wiring
+<IMG SRC="Media/PIDFritzing.PNG" width="600 " height="450">
