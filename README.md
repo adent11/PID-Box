@@ -146,7 +146,7 @@ int calcRPM()
 </p>
 </details>
 
-<details><summary><b>Week 11</b></summary>
+<details><summary><b>Week 12</b></summary>
 <p>
   
 * Finalized code
@@ -155,3 +155,20 @@ int calcRPM()
 </details>
  
 ## The Finished Product
+
+### Materials List
+* LCD Screen
+* LCD Backpack
+* Photinterrupter
+* 2 Switches
+* 10k Potentiometer
+* 6 AA Battery Pack
+* DC Motor
+* 8 220Ω Resistors
+* 6 Red LEDs
+* 1 Green LED
+* Arduino Uno
+* Prototyping Shield <br/>
+* Box
+* Wheel
+* Motor Mount
