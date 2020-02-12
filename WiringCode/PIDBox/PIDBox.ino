@@ -1,26 +1,25 @@
-#include <LiquidCrystal_I2C.h>
-
 //PIDBox.ino
 //Alden Dent
+//Main PID Box Code
 
-
-
+#include <LiquidCrystal_I2C.h>
 #include <Wire.h>
+
 LiquidCrystal_I2C lcd(0x3F, 16, 2); // set the LCD address to 0x27 for a 16 chars and 2 line display.
 // If 0x27 doesn't work, try 0x3F.
 
 // rpm varibles
-volatile int interruptCount = 0;
+volatile int interruptCount = 0;  //How many times the wheel passes throught the interrupter
 const int rpmCalcDelay = 166;  //Delay between calculations of rpm
-long oldmillis = 0;
+long oldmillis = 0; //Old time value so the timer works
 
 // motor control variables
 const int interruptPin = 3;
 const int motorPin = 6;
-int actualSpeed = 0;
-int setPoint = 0;
-int motorPower = 0;
-int error;
+int actualSpeed = 0;  //Speed in RPM mapped from 0-100
+int setPoint = 0; //How fast you want it to go
+int motorPower = 0; //The amout of power sent to the motor
+int error;  //Difference between set and actual speed
 int adjustment; //proportional control adjustment
 
 //PID variables
@@ -28,7 +27,7 @@ double kP = 6; //PID constant
 double kI = .01; //PID constant
 double kD = 0.0000; //PID constant
 int oldError; //Previous error, used to find
-float Derivative, Drive, Integral;
+float Derivative, Drive, Integral;  //PID values
 
 // user control pins
 const int modeSwitch = 5;
@@ -67,7 +66,7 @@ void setup()
   pinMode(led3, OUTPUT);
   pinMode(led4, OUTPUT);
   pinMode(ledBlink, OUTPUT);
-  pinMode(interruptPin, INPUT_PULLUP);
+  pinMode(interruptPin, INPUT_PULLUP);  //Make sure you use INPUT_PULLUP for the interrupt pin
 
   attachInterrupt(digitalPinToInterrupt(interruptPin), count, CHANGE);
   initialized = digitalRead(modeSwitch);  //Makes sure it knows which mode it is in
@@ -105,8 +104,8 @@ void loop()
       if (initialized == 0) { //Initialization sequence
         digitalWrite(pidLed, LOW);  //LED shows which mode
         lcd.clear();
-        lcd.print("PID OFF                       ");
-        initialized = 1;
+        lcd.print("PID OFF                       ");  //LCD prints the mode
+        initialized = 1;  //Switches so it only initializes once
         delay(800); //Delay so user can read the message
       }
 
@@ -120,8 +119,8 @@ void loop()
       if (initialized == 1) { //Initialization sequence
         digitalWrite(pidLed, HIGH); //LED shows which mode
         lcd.clear();
-        lcd.print("PID ON                     ");
-        initialized = 0;
+        lcd.print("PID ON                     ");  //LCD prints the mode
+        initialized = 0;  //Switches so it only initializes once
         delay(800); //Delay so user can read the message
       }
 
@@ -135,11 +134,11 @@ void loop()
 
     }
     interruptCount = 0; //Resets interrupt counter
-    oldmillis = millis();
+    oldmillis = millis(); //Resets the timer
 
     Serial.print(setPoint); //Shows setpoint and speed as two lines on serial plotter
-    Serial.print(",");
-    Serial.println(actualSpeed);
+    Serial.print(",");  //Shows setpoint and speed as two lines on serial plotter
+    Serial.println(actualSpeed);  //Shows setpoint and speed as two lines on serial plotter
 
     attachInterrupt(digitalPinToInterrupt(interruptPin), count, CHANGE);  //Reattaches the interrupt
   }
@@ -163,34 +162,34 @@ int calcRPM()
 
 void setLeds()  //Sets speed LEDs
 {
-  if (actualSpeed > 0) {
+  if (actualSpeed > 0) {  //If speed 1-24 one LED is on
     digitalWrite(led1, HIGH);
     digitalWrite(led2, LOW);
     digitalWrite(led3, LOW);
     digitalWrite(led4, LOW);
   }
 
-  if (actualSpeed > 25) {
+  if (actualSpeed > 25) { //If speed is 25-49 two LEDs are on
     digitalWrite(led1, HIGH);
     digitalWrite(led2, HIGH);
     digitalWrite(led3, LOW);
     digitalWrite(led4, LOW);
   }
 
-  if (actualSpeed > 75) {
+  if (actualSpeed > 50) { //If speed is 50-74 three LEDs are on
     digitalWrite(led1, HIGH);
     digitalWrite(led2, HIGH);
     digitalWrite(led3, HIGH);
     digitalWrite(led4, LOW);
   }
 
-  if (actualSpeed > 100) {
+  if (actualSpeed > 75) { //If speed is above 75 all four LEDs are on
     digitalWrite(led1, HIGH);
     digitalWrite(led2, HIGH);
     digitalWrite(led3, HIGH);
     digitalWrite(led4, HIGH);
   }
-  if (actualSpeed == 0) {
+  if (actualSpeed == 0) { //If speed is 0 no LEDs are on
     digitalWrite(led1, LOW);
     digitalWrite(led2, LOW);
     digitalWrite(led3, LOW);
@@ -199,27 +198,7 @@ void setLeds()  //Sets speed LEDs
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-void initSequence() {
+void initSequence() { //Types out my name and PID box and does fancy LED stuff
   lcd.print("A");
   delay(50);
   lcd.print("l");
