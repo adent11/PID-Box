@@ -17,7 +17,7 @@ The goal of the PID box project is to control the speed of a motor using a photi
 |11|2/3/20|Delay compensation|Recut wheel, retuned PID constants|
 |12|2/10/20|Delay compensation|Finalized code, finished readme|
 
-# My Process
+# The Process
 <details><summary><b>Pre-project Planning</b></summary>
 <p>
 I didn't do a lot of sketching or drawing out plans, so most of my project planning was done in either Solidworks or Arduino, starting with smaller assemblies or simple test codes to gain the understanding of how the project works. I did however spend a while before actually starting the project trying to understand how PID control works.
