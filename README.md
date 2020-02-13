@@ -28,6 +28,7 @@ I didn't do a lot of sketching or drawing out plans, so most of my project plann
 <p>
   
 * Designed mount for motor
+* On the motor mount I had some trouble getting the screws to be in a place where I can screw all of them in, so I extended the part that attaches to the box
 * Designed wheel 
 <br/>
 <IMG SRC="Media/MotorMount1.PNG" width="273" height="200"> <IMG SRC="Media/InterruptWheel1.PNG" width="252" height="200"><IMG SRC="Media/MotorAssem1.PNG" width="231" height="200"><br/>
@@ -66,7 +67,7 @@ I didn't do a lot of sketching or drawing out plans, so most of my project plann
   
 * Laser cut all walls
 * Drilled to fix some holes that were the wrong size
-* Recut a wall to have labels
+* Recut a wall to have my name, labels for the switches, and some holes that should have been there
 * Started making fritzing diagram
 </p>
 </details>
@@ -88,7 +89,7 @@ I didn't do a lot of sketching or drawing out plans, so most of my project plann
 
 * Soldered wires to all components
 * Finished assembling box
-* One problem that I faced this week was that all of my wiring had to fit into a relatively small space, so it took a long time to wire <br/>
+* One problem that I faced this week was that all of my wiring had to fit into a relatively small space, so it was tedious and took a long time to wire <br/>
 <IMG SRC="Media/PIDBoxWiring.JPG" width="267" height="200"> <br/>
 </p>
 </details>
@@ -97,6 +98,7 @@ I didn't do a lot of sketching or drawing out plans, so most of my project plann
 <p>
   
 * Tested all components
+* I forgot to add a resistor to ground on the mode switch, so I had to solder that on
 * Wrote rpm code
 
 ``` c++
@@ -149,6 +151,9 @@ int calcRPM()
   
 * Finalized code
 * Wrap up loose ends such as git
+* Made this lovely readme
+* Commented code
+* Took videos, pictures, and screenshots
 </p>
 </details>
  
