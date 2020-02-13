@@ -145,7 +145,7 @@ void loop()
 
 }
 
-void count()
+void count()  //Interrupt loop
 {
   interruptCount = interruptCount + 1;  //Adds one to interrupt count
   ledblink = !ledblink; //Switches the state of the blinking led
@@ -156,7 +156,7 @@ void count()
 int calcRPM()
 {
   int rpm;
-  rpm = interruptCount * (60000 / rpmCalcDelay) / 12; //Calculates rpm
+  rpm = interruptCount * (60000 / rpmCalcDelay) / 12; //Calculates rpm, interrupts times calculations per second divided by the number of interrupts per rotation
   return rpm;
 }
 
@@ -217,7 +217,7 @@ void initSequence() { //Types out my name and PID box and does fancy LED stuff
   lcd.print("n");
   delay(50);
   lcd.print("t");
-  lcd.setCursor(0, 1);
+  lcd.setCursor(0, 1);  //Puts the cursor on the next line
   lcd.print("P");
   delay(50);
   lcd.print("I");
@@ -229,7 +229,7 @@ void initSequence() { //Types out my name and PID box and does fancy LED stuff
   lcd.print("o");
   delay(50);
   lcd.print("x");
-  digitalWrite(ledBlink, HIGH);
+  digitalWrite(ledBlink, HIGH); //Turns LEDs on and off in pretty patterns
   digitalWrite(led1, HIGH);
   delay(ledStartupDelay);
   digitalWrite(ledBlink, LOW);
