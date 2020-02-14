@@ -179,7 +179,7 @@ int calcRPM()
 The wiring for the PID Box was fairly straightforward, however having so many LEDs complicated my wiring slightly. I saved some space by soldering the ground legs of all of the LEDs together, and I used a breadboard in order to avoid having to solder resistors on to each LED. The first time I put it together, I forgot to ground the mode switch, so I had to reopen it and solder on the resistor. The only other complex wiring was that of the motor, but I already had that from the motor assignment, so all I had to do was copy it.
 <IMG SRC="Media/PIDFritzing.PNG" width="600" height="450">
 
-### The Finished Box
+### The Box
 <IMG SRC="Media/VideoPreview.PNG" width="350" height="350">
 <sup><a href="https://www.youtube.com/watch?v=RjP5sMNfZZY&feature=youtu.be" target="_blank">The PID Box in action</a></sup>
 
