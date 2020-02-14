@@ -125,7 +125,7 @@ void loop()
       }
 
       error = setPoint - actualSpeed; //PID math
-      Integral = Integral + (error * rpmCalcDelay); //PID math
+      Integral = constrain((Integral + (error * rpmCalcDelay)), -10000, 10000); //PID math
       Derivative = (error - oldError) / rpmCalcDelay; //PID math
       motorPower = (error * kP) + (Integral * kI) + (Derivative * kD);  //PID math
       oldError = error;
